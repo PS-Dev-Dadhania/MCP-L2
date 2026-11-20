@@ -66,23 +66,36 @@ An autonomous, multi-tool travel concierge powered by Anthropic's **Model Contex
 
 ```
 .
-├── chatdeck/                         # Next.js Web Interface & Tool Bridge
-│   ├── app/                          # App router (/ and API routes /api/chat, /api/tools)
-│   ├── components/                   # React / Tailwind / Radix UI components
+├── .github/
+│   └── workflows/
+│       └── ci.yml                    # Automated GitHub Actions CI workflow (Tests + Build)
+├── docs/                             # Engineering & Protocol Documentation
+│   ├── ARCHITECTURE.md               # System Topology, Flow Diagrams & Safety Controls
+│   └── MCP_SPECIFICATION.md          # FastMCP Tool Signatures & Parameter Schemas
+├── tests/                            # Automated Testing Suite
+│   ├── __init__.py
+│   └── test_mcp_suite.py             # 30-case QA verification suite (pytest compatible)
+├── chatdeck/                         # Next.js Enterprise Web Deck & MCP Bridge
+│   ├── app/                          # App Router (/ and API routes /api/chat, /api/tools)
+│   ├── components/                   # React 19 / Tailwind CSS / Radix UI modules
 │   │   └── Blocks/                   # Deck, Architecture, and Logs UI modules
 │   ├── lib/                          # Utility functions
-│   ├── package.json                  # Node dependencies
-│   └── .env.example                  # Web environment template
-├── weekendwiz/                       # Core Python FastMCP Server & Agent
-│   ├── s.py                          # FastMCP Server definition & 8 MCP Tools
+│   ├── package.json                  # Package configuration ("weekendwiz-chatdeck" v2.0.0)
+│   ├── Dockerfile                    # Container definition for frontend
+│   └── .env.example                  # Frontend environment template
+├── weekendwiz/                       # Core Python FastMCP Server & AI Agent
+│   ├── server.py                     # Canonical FastMCP server definition & 8 MCP Tools
+│   ├── agent.py                      # Multi-step autonomous LLM tool calling engine
 │   ├── run.py                        # Diagnostic CLI & stdio MCP transport runner
-│   ├── agent.py                      # Autonomous LLM tool calling engine
-│   ├── agent_fun.py                  # Entertainment & trivia MCP tools
-│   ├── requirements.txt              # Python dependencies
-│   └── .env.example                  # Python environment template
-├── qa_test_suite.py                  # 30-case automated QA verification suite
+│   ├── s.py                          # Backward-compatibility import shim
+│   ├── pyproject.toml                # Standard PEP 517/621 Python package configuration
+│   ├── requirements.txt              # Production Python dependencies
+│   ├── Dockerfile                    # Container definition for backend
+│   └── .env.example                  # Backend environment template
+├── docker-compose.yml                # Multi-container orchestration (Backend + Frontend)
+├── qa_test_suite.py                  # Standalone QA test execution runner
 ├── .gitignore                        # Git exclusion rules
-└── README.md                         # Documentation
+└── README.md                         # Project documentation & setup instructions
 ```
 
 ---

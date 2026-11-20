@@ -15,7 +15,10 @@ if sys.platform == "win32":
     except Exception:
         pass
 
-import s
+try:
+    import server as s
+except ImportError:
+    import s
 
 dotenv.load_dotenv()
 

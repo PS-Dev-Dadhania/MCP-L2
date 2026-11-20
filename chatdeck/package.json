@@ -1,6 +1,7 @@
 {
-  "name": "saas-landing-page",
-  "version": "0.1.0",
+  "name": "weekendwiz-chatdeck",
+  "version": "2.0.0",
+  "description": "Enterprise Web Deck & MCP Tool Playground for WeekendWiz Travel Concierge",
   "private": true,
   "scripts": {
     "dev": "next dev",

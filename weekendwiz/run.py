@@ -6,7 +6,10 @@ Demonstration & Test Suite for FastMCP Server
 
 import sys
 import json
-import s
+try:
+    import server as s
+except ImportError:
+    import s
 
 
 def print_header(title: str):

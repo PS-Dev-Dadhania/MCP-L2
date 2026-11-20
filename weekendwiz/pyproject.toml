@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "weekendwiz-concierge"
+version = "2.0.0"
+description = "Autonomous Enterprise Travel Concierge FastMCP Server"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Dev Dadhania", email = "dev.dadhania@productsquads.co" }]
+dependencies = [
+    "mcp>=1.0.0",
+    "requests>=2.28.0",
+    "python-dotenv>=1.0.0",
+    "groq>=0.4.0",
+    "google-genai>=0.1.0",
+]
+
+[project.scripts]
+weekendwiz-server = "weekendwiz.server:mcp.run"
+weekendwiz-cli = "weekendwiz.run:run_interactive"

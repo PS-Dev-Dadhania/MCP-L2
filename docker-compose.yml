@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./weekendwiz
+      dockerfile: Dockerfile
+    container_name: weekendwiz-mcp-backend
+    restart: unless-stopped
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    volumes:
+      - ./weekendwiz:/app
+    command: python run.py --test
+
+  frontend:
+    build:
+      context: ./chatdeck
+      dockerfile: Dockerfile
+    container_name: weekendwiz-chatdeck-ui
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    depends_on:
+      - backend
